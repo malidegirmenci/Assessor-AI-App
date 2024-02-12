@@ -1,6 +1,6 @@
 package com.madtech.assessorai.dto;
 
-import com.madtech.assessorai.utils.ValidationMsgPatterns;
+import com.madtech.assessorai.validation.ValidationMessage;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
@@ -11,7 +11,7 @@ import org.springframework.validation.annotation.Validated;
 @NoArgsConstructor
 @Data
 public class ReqCompletions {
-    @NotNull(message = "Prompt " + ValidationMsgPatterns.notNull)
-    @NotEmpty(message = "Prompt " + ValidationMsgPatterns.notEmpty)
+    @NotNull(message = "Prompt " + ValidationMessage.notNull)
+    @NotEmpty(message = "Prompt " + ValidationMessage.notEmpty)
     private String prompt;
 }
