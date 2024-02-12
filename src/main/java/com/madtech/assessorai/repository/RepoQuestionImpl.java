@@ -1,9 +1,10 @@
 package com.madtech.assessorai.repository;
 
 import com.madtech.assessorai.entity.Question;
+import org.springframework.stereotype.Component;
 
 import java.util.*;
-
+@Component
 public class RepoQuestionImpl implements IRepoQuestion {
     private final Map<Long, Question> questionMap = new HashMap<>();
     private long id = 1L;
