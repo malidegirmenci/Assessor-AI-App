@@ -1,7 +1,7 @@
-package com.madtech.assessorai.utils;
+package com.madtech.assessorai.validation;
 
-public class ValidationMsgPatterns {
-    private ValidationMsgPatterns() {}
+public class ValidationMessage {
+    private ValidationMessage() {}
     public static final String notEmpty = "cannot be empty.";
     public static final String notNull = "cannot be null.";
     public static final String maxLenStr = "character count cannot be greater than";
