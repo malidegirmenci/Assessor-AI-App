@@ -1,4 +1,5 @@
 package com.madtech.assessorai.dto;
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

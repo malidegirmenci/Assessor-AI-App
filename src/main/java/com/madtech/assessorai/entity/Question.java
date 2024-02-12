@@ -13,12 +13,14 @@ import java.util.List;
 public class Question {
     private Long id;
     private String text;
+
     public static Question convert(ReqQuestion reqQuestion) {
 
         Question question = new Question();
         question.setText(reqQuestion.getText());
         return question;
     }
+
     public static ResQuestion convert(Question question) {
 
         ResQuestion resQuestion = new ResQuestion();
@@ -26,6 +28,7 @@ public class Question {
         resQuestion.setText(question.getText());
         return resQuestion;
     }
+
     public static List<ResQuestion> convert(List<Question> questionList) {
 
         List<ResQuestion> resQuestionList = new ArrayList<>();
