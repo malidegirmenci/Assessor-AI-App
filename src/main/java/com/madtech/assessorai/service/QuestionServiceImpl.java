@@ -13,12 +13,10 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class ServiceQuestionImpl implements IServiceQuestion {
-
+public class QuestionServiceImpl implements IServiceQuestion {
     private final IRepoQuestion repoQuestion;
-
     @Autowired
-    public ServiceQuestionImpl(IRepoQuestion repoQuestion) {
+    public QuestionServiceImpl(IRepoQuestion repoQuestion) {
         this.repoQuestion = repoQuestion;
         Question question1 = new Question();
         question1.setText("JS DOM'da dinamik olarak bir liste elemanı nasıl oluşturulur? Hangi adımları izlersin?");
@@ -59,16 +57,13 @@ public class ServiceQuestionImpl implements IServiceQuestion {
 
     @Override
     public ResQuestion create(ReqQuestion reqQuestion) {
-
         Question question = Question.convert(reqQuestion);
         return Question.convert(repoQuestion.save(question));
     }
 
     @Override
     public ResQuestion delete(long id) {
-
         Question question = findQuestionById(id);
-
         repoQuestion.deleteById(id);
         return Question.convert(question);
     }
@@ -87,16 +82,15 @@ public class ServiceQuestionImpl implements IServiceQuestion {
 
     @Override
     public ResQuestion update(long id, ReqQuestion reqQuestion) {
-
         Question question = Question.convert(reqQuestion);
         question.setId(id);
-
         return Question.convert(repoQuestion.save(question));
     }
 
     @Override
     public Question findQuestionById(long id) {
-        return repoQuestion.findById(id)
+        return repoQuestion
+                .findById(id)
                 .orElseThrow(() -> new ExceptionOpenAi(
                         String.format("Question " + ValidationMessage.idCannotBeFound, id),
                         HttpStatus.NOT_FOUND

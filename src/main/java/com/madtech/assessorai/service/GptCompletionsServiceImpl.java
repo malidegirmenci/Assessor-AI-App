@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ServiceGptCompletionsImpl implements IServiceGptCompletions{
+public class GptCompletionsServiceImpl implements IServiceGptCompletions{
 
     @Value("${openai.api.v1.completions.model}")
     private String model;
