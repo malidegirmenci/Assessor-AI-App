@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileUtils {
-    public static final String TEXT_RESOURCES_PATH = "resources/text/";
-    public static final String VIDEO_RESOURCES_PATH = "resources/video/";
-    public static final String AUDIO_RESOURCES_PATH = "resources/audio/";
+    public static final String TEXT_RESOURCES_PATH = "\\src\\main\\resources\\text\\";
+    public static final String VIDEO_RESOURCES_PATH = "\\src\\main\\resources\\video\\";
+    public static final String AUDIO_RESOURCES_PATH = "\\src\\main\\resources\\audio\\";
 
     public static void writeTextToFile(String textData, String fileName) {
         Path directory = Paths.get(TEXT_RESOURCES_PATH);
@@ -39,6 +39,7 @@ public class FileUtils {
 
     public static String saveFile(MultipartFile file) throws IOException {
         String dir = System.getProperty("user.dir") + VIDEO_RESOURCES_PATH;
+        System.out.println("Path:"+dir);
         file.transferTo(new File(dir + file.getOriginalFilename()));
         System.out.println(dir + file.getOriginalFilename());
         return dir + file.getOriginalFilename();
